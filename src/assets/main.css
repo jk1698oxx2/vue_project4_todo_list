@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-size: 3.5rem;
+}
+
+.gradient-custom {
+  background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+              linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+              linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+              radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+              radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+  background-blend-mode: screen, color-dodge, overlay, difference, normal;
+}
+
+.todo-app {
+  width: 350px;
+  height: 450px;
+  position: relative;
+}
+
+.task-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 450px;
+  overflow: auto;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.discard-message-text {
+  font-size: 1.5rem;
+}
+
+#tasks-container {
+  height: calc(100% - 80px); /* 扣除按鈕高度避免爆出去 */
+  overflow-y: auto;
+}
+
+/* 現代化新增：Vue 列表與彈窗過場動畫特效 */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -45%) scale(0.95);
+}
+
+.list-enter-active, .list-leave-active {
+  transition: all 0.4s ease;
+}
+.list-enter-from, .list-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+@media (min-width: 576px) {
+  h1 { font-size: 4rem; }
+  .todo-app, .task-form {
+    width: 450px;
+    min-height: 450px;
+  }
+}
